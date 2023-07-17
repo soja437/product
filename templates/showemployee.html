@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+h1{
+    text-align: center;
+}
+body{
+    /* background-color: gray; */
+    background-image: url(https://st5.depositphotos.com/79548012/65829/i/450/depositphotos_658293976-stock-photo-concept-human-resource-management-magnifier.jpg);
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+    
+    
+}  
+</style>
+<body><br><br>
+    <h1>Show Employee Details</h1><br>
+    
+    <table border="2px" align="center">
+        <thead>
+            <tr>
+                <th>EMPLOYEE ID</th>
+                <th>EMPLOYEE NAME</th>
+                <th>EMPLOYEE ADDRESS</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for e in employees %}
+            <tr>
+               
+                <td>{{e.emp_id}}<br></td>
+                <td>{{e.emp_name}}</td>
+                <td>{{e.emp_address}}</td>
+                <td>
+                    <a href="{% url 'update' e.id %}">Edit</a>
+                </td>
+                <td>
+                    <a href="{% url 'delete' e.id %}">Delete</a>
+                </td>
+                
+                
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
